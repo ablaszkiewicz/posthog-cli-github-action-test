@@ -42,6 +42,12 @@ runs:
         POSTHOG_CLI_TOKEN: ${{ inputs.cli-token }}
       run: posthog-cli sourcemap inject --directory "${{ inputs.directory }}"
 
+    - name: List git directory
+      shell: bash
+      run: |
+        echo "Git directory:"
+        ls -la .git
+
     - name: Upload sourcemaps
       shell: bash
       env:
