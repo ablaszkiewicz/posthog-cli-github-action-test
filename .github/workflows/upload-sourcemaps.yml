@@ -26,5 +26,5 @@ jobs:
         uses: ablaszkiewicz/posthog-cli-github-action@v0.0
         with:
           directory: "./dist"
-          cli-token: "phx_PuxhehCZ8loypUynsdCJSozMLbgY4nKY4rTZ85MKNvcGL5k"
+          cli-token: ${{ secrets.POSTHOG_CLI_TOKEN }}
           env-id: "215564"
