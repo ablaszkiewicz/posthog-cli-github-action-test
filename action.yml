@@ -56,4 +56,5 @@ runs:
         if [ -n "${{ inputs.version }}" ]; then
           args+=(--version "${{ inputs.version }}")
         fi
+        echo "Executing command: posthog-cli sourcemap upload ${args[*]}"
         posthog-cli sourcemap upload "${args[@]}"
