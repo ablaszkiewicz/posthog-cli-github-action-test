@@ -48,6 +48,12 @@ runs:
         echo "Git directory:"
         ls -la .git
 
+    - name: Print git info from .git/info
+      shell: bash
+      run: |
+        echo "Git info:"
+        ls -la .git/info
+
     - name: Upload sourcemaps
       shell: bash
       env:
