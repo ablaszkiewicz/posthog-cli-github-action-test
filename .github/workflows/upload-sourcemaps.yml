@@ -29,3 +29,4 @@ jobs:
           cli-token: ${{ secrets.POSTHOG_CLI_TOKEN }}
           env-id: "215564"
           version: "some-version"
+          project: "some-project"
