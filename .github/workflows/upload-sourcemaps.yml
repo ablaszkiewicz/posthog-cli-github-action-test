@@ -26,6 +26,7 @@ jobs:
         uses: ablaszkiewicz/posthog-cli-github-action@v0.7
         with:
           directory: "./dist"
-          cli-token: ${{ secrets.POSTHOG_CLI_TOKEN }}
-          env-id: "215564"
+          cli-token: ${{ secrets.POSTHOG_CLI_TOKEN_EU }}
+          # env-id: "215564" EU
+          env-id: "88559"
           host: "https://eu.posthog.com"
