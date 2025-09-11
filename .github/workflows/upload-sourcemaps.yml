@@ -30,5 +30,3 @@ jobs:
           env-id: "215564" # US
           # env-id: "88559"
           host: "https://us.posthog.com"
-          project: "test-project"
-          version: "test-version"
