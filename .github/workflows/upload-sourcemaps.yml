@@ -28,4 +28,3 @@ jobs:
           directory: "./dist"
           cli-token: ${{ secrets.POSTHOG_CLI_TOKEN }}
           env-id: "215564"
-          project: "test-project"
