@@ -23,7 +23,7 @@ jobs:
         run: pnpm run build
 
       - name: Inject & upload sourcemaps to PostHog
-        uses: ./
+        uses: ablaszkiewicz/posthog-upload-sourcemaps@v0.2
         with:
           directory: "./dist"
           cli-token: ${{ secrets.POSTHOG_CLI_TOKEN }}
