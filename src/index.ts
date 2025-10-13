@@ -1,26 +1,16 @@
-import { otherFileFunctionUpdateCustomProject } from "./some-other-file-m";
 import { PostHog } from "posthog-node";
+import { otherFileFunctionUpdateCustomProject } from "./some-other-file";
 
-const client = new PostHog("phc_p23SIiHyepbet1p4ufrPISJSjNndMxJR5kxlmpnW9OI", {
+const client = new PostHog("phc_PsVKi7b2xAu14LqBSvU7OcJTezht8ltFAf8IKug5MGu", {
   host: "http://localhost:8010",
   enableExceptionAutocapture: true,
 });
 client.debug(true);
 
-function main() {
-  throwInOtherFileM();
-}
-
-function throwInOtherFileM() {
+async function main() {
   otherFileFunctionUpdateCustomProject();
-}
 
-function throwInThisFile() {
-  console.log("indexFunction");
-
-  const someTypescriptVariable: string = "this is a typescript variable";
-
-  throw new WebTransportError("this is brand new error updated");
+  await client.shutdown();
 }
 
 main();
