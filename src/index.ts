@@ -7,10 +7,43 @@ const client = new PostHog("phc_PsVKi7b2xAu14LqBSvU7OcJTezht8ltFAf8IKug5MGu", {
 });
 client.debug(true);
 
-async function main() {
-  otherFileFunctionUpdateCustomProject();
+// async function main() {
+//   otherFileFunctionUpdateCustomProject();
 
+//   await client.shutdown();
+// }
+
+// main();
+
+async function main2() {
+  client.captureException(new Error("Test"), `${Math.random()}`, {
+    $browser: "Chrome",
+  });
+  client.captureException(new Error("Test"), `${Math.random()}`, {
+    $browser: "Chrome",
+  });
+  client.captureException(new Error("Test"), `${Math.random()}`, {
+    $browser: "Chrome",
+  });
+  client.captureException(new Error("Test"), `${Math.random()}`, {
+    $browser: "Chrome",
+  });
+  client.captureException(new Error("Test"), `${Math.random()}`, {
+    $browser: "Chrome",
+  });
+  client.captureException(new Error("Test"), `${Math.random()}`, {
+    $browser: "Chrome",
+  });
+  client.captureException(new Error("Test"), `${Math.random()}`, {
+    $browser: "Safari",
+  });
+  client.captureException(new Error("Test"), `${Math.random()}`, {
+    $browser: "Safari",
+  });
+  client.captureException(new Error("Test"), `${Math.random()}`, {
+    $browser: "Firefox",
+  });
   await client.shutdown();
 }
 
-main();
+main2();
