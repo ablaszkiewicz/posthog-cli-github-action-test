@@ -1,5 +1,5 @@
 import { PostHog } from "posthog-node";
-import { otherFileFunctionUpdateCustomProject } from "./some-other-file";
+import { otherFileFunctionUpdateCustomProjectZ } from "./some-other-file";
 
 const client = new PostHog("phc_PsVKi7b2xAu14LqBSvU7OcJTezht8ltFAf8IKug5MGu", {
   host: "http://localhost:8010",
@@ -7,13 +7,24 @@ const client = new PostHog("phc_PsVKi7b2xAu14LqBSvU7OcJTezht8ltFAf8IKug5MGu", {
 });
 client.debug(true);
 
-// async function main() {
-//   otherFileFunctionUpdateCustomProject();
+async function executeCommand(command: string, sessionId: string) {}
 
-//   await client.shutdown();
-// }
+async function mainTest6() {
+  const customerId = "123";
 
-// main();
+  client.captureException(
+    new Error("this is main error", {
+      cause: new Error("this is cause error", {
+        cause: "this is cause error string cause",
+      }),
+    }),
+    customerId
+  );
+
+  await client.shutdown();
+}
+
+mainTest6();
 
 async function main2() {
   client.captureException(new Error("Test"), `${Math.random()}`, {
@@ -45,5 +56,3 @@ async function main2() {
   });
   await client.shutdown();
 }
-
-main2();
