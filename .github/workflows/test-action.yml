@@ -1,0 +1,35 @@
+name: Upload source maps to PostHog
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build_and_upload:
+    runs-on: ubuntu-latest
+    env:
+      ENV: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10.10.0
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+      - name: Install packages
+        run: |
+          pnpm install --frozen-lockfile
+
+      - run: pnpm run build
+
+      - name: Inject & upload source maps to PostHog
+        uses: PostHog/upload-source-maps@v0.5.7.0
+        with:
+          directory: ./dist
+          env-id: 90159
+          cli-token: ${{ secrets.POSTHOG_CLI_TOKEN }}
+          host: https://eu.posthog.com
+          delete-after-upload: true
